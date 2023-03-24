@@ -26,7 +26,7 @@
                             href="#">:
                             &nbsp; {{ $edit->laporan }}</a></li>
 
-                    <li class="mb-4"><span data-feather="home" class="feather-sm me-1"></span> Status :
+                    <li class="mb-1"><span data-feather="home" class="feather-sm me-1"></span> Status :
                         @switch($edit)
                         @case($edit->status == '1')
                         <span class="badge bg-success">Terverifikasi</span>
@@ -35,7 +35,12 @@
                     </a>
                     </li>
                 </ul>
+                <div class="mb-3 mt-2">
+                    <label for="tanggapan" class="form-label">Tanggapan Terakhir Oleh <strong>{{ $edit->tanga->petugas->level  }}</strong></label>
+                    <textarea class="form-control mb-3" name="tanggapan" readonly>{{ $edit->tanga->tanggapan }}</textarea>
+                </div>
             </form>
+
         </div>
     </div>
 </div>

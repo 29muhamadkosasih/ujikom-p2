@@ -17,10 +17,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @forelse ($data as $item)
                     <tr>
                         <td>{{ $item->tgl_pengaduan }}</td>
-                        <td>{{ $item->mas->nik }}</td>
+                        <td>{{ $item->us->nik }}</td>
                         <td>{{ $item->laporan }}</td>
                         <td><img src="/image/{{ $item->fhoto }}" width="80px" alt=""></td>
                         <td>
@@ -53,7 +53,13 @@
                             @endswitch
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                      <td colspan="7" class="text-center text-gray-400">
+                        Data Tidak Ada
+                      </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

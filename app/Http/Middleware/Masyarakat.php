@@ -25,11 +25,4 @@ class Masyarakat
         }
 
     }
-    // protected function redirectTo()
-    // {
-
-    //     if (session()->get('level') != 'admin' || session()->get('level') !== 'petugas'){
-    //         dd('login');
-    //     }
-    // }
 }

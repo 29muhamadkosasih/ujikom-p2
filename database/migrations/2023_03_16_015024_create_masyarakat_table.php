@@ -15,11 +15,12 @@ class CreateMasyarakatTable extends Migration
     {
         Schema::create('masyarakat', function (Blueprint $table) {
             $table->id();
-            $table->string('nik');
-            $table->string('name');
-            $table->string('username');
-            $table->string('password');
-            $table->string('telp');
+            $table->char('nik', 16);
+            $table->string('name', 35);
+            $table->string('username', 25);
+            $table->string('telp', 13);
+            $table->string('password', 32);
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

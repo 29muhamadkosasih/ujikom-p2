@@ -8,46 +8,54 @@
             <table class="table table-hover dataTable zero-configuration my-0">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th class="d-none d-xl-table-cell">NIK</th>
-                        <th class="d-none d-xl-table-cell">Laporan</th>
-                        <th>Image</th>
-                        <th>status</th>
-                        <!-- <th class="d-none d-md-table-cell">Action</th> -->
+                        <th>No</th>
+                        <th>Tanggal Kejadian</th>
+                        <th>Nama Pelapor</th>
+                        <th>Isi Laporan</th>
+                        <th>alamat</th>
+                        <th>Tanggapan</th>
+                        <th>Tanggal Tanggapan</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @forelse ($data as $k => $v)
                     <tr>
-                        <td>{{ $item->tgl_pengaduan }}</td>
-                        <td>{{ $item->us->nik }}</td>
-                        <td>{{ $item->laporan }}</td>
-                        <td><img src="/image/{{ $item->fhoto }}" width="80px" alt=""></td>
+                        <td>{{ $k += 1 }}</td>
+                        <td>{{ $v->tgl_pengaduan}}</td>
+                        <td>{{ $v->us->name}}</td>
+                        <td>{{ $v->laporan}}</td>
+                        <td>{{ $v->alamat}}</td>
+                        <td>{{ $v->tanga->tanggapan}}</td>
+                        <td>{{ $v->tanga->tgl_tanggapan }}</td>
                         <td>
-                            @switch($item)
-                            @case($item->status == '0')
+                            @switch($v)
+                            @case($v->status == '0')
                             <span class="badge bg-secondary">Pending</span>
                             @break
 
-                            @case($item->status == 'verifikasi')
+                            @case($v->status == 'verifikasi')
                             <span class="badge bg-warning">Terverikasi</span>
                             @break
-                            @case($item->status == 'proses')
-                            <span class="badge bg-info">On Progress</span>
+                            @case($v->status == 'proses')
+                            <span class="badge bg-success">On Progress</span>
                             @break
-                            @case($item->status == 'selesai')
+                            @case($v->status == 'selesai')
                             <span class="badge bg-success">Selesai</span>
                             @break
 
                             @default
-                            <span>{{ $item->status }}</span>
+                            <span>{{ $v->status }}</span>
                             @endswitch
                         </td>
-                        <td>
-                            <!-- <a class="btn btn-primary btn-sm" href="{{ route('tanggapan.show', $item->id) }}">Detail</a> -->
-                        </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                      <td colspan="7" class="text-center text-gray-400">
+                        Data Terselesaikan Tidak Ada
+                      </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

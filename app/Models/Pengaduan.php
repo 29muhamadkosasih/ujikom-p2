@@ -21,10 +21,10 @@ class Pengaduan extends Model
     }
     public function tanga()
     {
-        return $this->hasOne(User::class, 'nik_id');
+        return $this->hasOne(Tanggapan::class);
     }
 
     public function tanggapan()
     {
-        return $this->hasMany(Tanggapan::class); } 
+        return $this->hasMany(Tanggapan::class); }
     }

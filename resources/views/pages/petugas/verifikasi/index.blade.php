@@ -17,7 +17,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @forelse ($data as $item)
                     <tr>
                         <td>{{ $item->tgl_pengaduan }}</td>
                         <td>{{ $item->us->nik }}</td>
@@ -53,7 +53,13 @@
                             @endswitch
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                      <td colspan="7" class="text-center text-gray-400">
+                        Data Terverfikasi Tidak Ada
+                      </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

@@ -18,7 +18,8 @@ class CreatePengaduanTable extends Migration
             $table->date('tgl_pengaduan');
             $table->unsignedBigInteger('nik_id');
             $table->text('laporan');
-            $table->string('fhoto');
+            $table->string('fhoto',255);
+            $table->string('alamat',255);
             $table->enum('status',['0','verifikasi','proses','selesai']);
             $table->foreign('nik_id')->references('id')->on('users');
             $table->timestamps();

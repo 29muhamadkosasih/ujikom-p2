@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Petugas;
 use PDF;
+use App\Models\User;
+use App\Models\Petugas;
 use App\Models\Pengaduan;
-use App\Models\Masyarakat;
 use App\Models\Tanggapan;
+use App\Models\Masyarakat;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,7 +16,7 @@ class DashboardController extends Controller
     {
         $dataadmin  =Petugas::where('level', 'admin')->count();
         $datapetugas  =Petugas::where('level', 'petugas')->count();
-        $datamasyarakat  =Masyarakat::all()->count();
+        $datamasyarakat  =User::all()->count();
         $datapengaduan  =Pengaduan::all()->count();
         $a = session()->get('name_petugas');
         // dd($a);
@@ -44,18 +45,6 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function exportPDF() {
-
-        $pengaduan = Pengaduan::all();
-        // dd($pengaduan);
-        $pdf = PDF::loadview('pages.admin.laporan.pdf', [
-            'pengaduan' => $pengaduan
-        ]);
-        // dd($pdf);
-        return $pdf->download('Laporan-Pengaduan-Masyarakat.pdf');
-
-    }
-
     public function getLaporan(Request $request, )
     {
         $from = $request->from . ' ' ;
@@ -78,21 +67,6 @@ class DashboardController extends Controller
 
         ]);
     }
-
-    public function exportPDFdate($tglawal, $tglakhir)
-    {
-        dd(["TANGGAL AWAL : ".$tglawal, "Tanggal akhir : ".$tglakhir]);
-
-        $pengaduan = Pengaduan::whereBetween('tgl_pengaduan',[$tglawal, $tglakhir])->get();
-        dd($pengaduan);
-        // $pdf = PDF::loadview('pages.laporan.pdf', [
-        //     'pengaduan' => $pengaduan
-        // ]);
-        // // dd($pdf);
-        // return $pdf->download('Laporan-Pengaduan-Masyarakat.pdf');
-
-    }
-
     public function cetakLaporan($from, $to)
     {
         $pengaduan = Pengaduan::whereBetween('tgl_pengaduan', [$from, $to])->get();
@@ -105,7 +79,7 @@ class DashboardController extends Controller
 
             ])->setPaper('a4', 'landscape');
         // dd($pdf);
-        return $pdf->download('laporan-pengaduan.pdf');
+        return $pdf->download('laporan-pengaduan-sukamahi.pdf');
     }
 
 }

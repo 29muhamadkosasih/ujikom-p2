@@ -51,17 +51,30 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($penga as $k => $v)
+                @foreach ($pengaduan as $k => $v)
                 <tr>
                     <td>{{ $k += 1 }}</td>
-                    <td>{{ $v->pengaduan->tgl_pengaduan}}</td>
-                    <td>{{ $v->pengaduan->us->name}}</td>
-                    <td>{{ $v->pengaduan->laporan }}</td>
-                    <td>{{ $v->pengaduan->alamat }}</td>
-                    <td>{{ $v->tanggapan }} oleh {{ $v->petugas->name_petugas }}</td>
-                    <!-- <td>{{ $v->created_at}}</td> -->
-                    <td>{{ $v->created_at->format('d/m/Y')}}</td>
-                    <td>{{ $v->pengaduan->status }}</td>
+                    <td>{{ $v->tgl_pengaduan}}</td>
+                    <td>{{ $v->us->name}}</td>
+                    <td>{{ $v->laporan}}</td>
+                    <td>{{ $v->alamat}}</td>
+                    <td>
+                        @switch($v)
+                        @case($v->status == '0')
+                        <td>Belum Ada Tanggapan</td>
+                        @break
+                        @default
+                        {{ $v->tanga->tanggapan}} Oleh {{ $v->tanga->petugas->level }}</td>
+                        @endswitch
+                        <td>
+                            @switch($v)
+                            @case($v->status == '0')
+                            <td>Belum Ada Tanggapan</td>
+                            @break
+                            @default
+                            {{ $v->tanga->tgl_tanggapan}}</td>
+                            @endswitch
+                    <td>{{ $v->status }}</td>
                 </tr>
                 @endforeach
             </tbody>

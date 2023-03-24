@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Masyarakat;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MasyarakatController extends Controller
 {
     public function index()
     {
-        $data = Masyarakat::all();
+        $data = User::all();
         return view('pages.admin.masyarakat.index',[
             'data'   => $data
         ]);
@@ -17,7 +18,7 @@ class MasyarakatController extends Controller
 
         public function destroy($id)
     {
-        $delete = Masyarakat::find($id);
+        $delete = User::find($id);
         $delete->delete();
         return redirect()->route('masyarakat.index');
     }

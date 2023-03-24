@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @forelse ($data as $item)
                     <tr>
                         <td>{{ $item->tgl_pengaduan }}</td>
                         <td>{{ $item->us->name }}</td>
@@ -24,27 +24,34 @@
                         <td>
                             <img src="/image/{{ $item->fhoto }}" width="80px" alt=""></td>
                         <td>
-                        @switch($item)
-                        @case($item->status == '0')
-                        <span class="badge bg-secondary">Pending</span>
-                        @break
+                            @switch($item)
+                            @case($item->status == '0')
+                            <span class="badge bg-secondary">Pending</span>
+                            @break
 
-                        @case($item->status == 'verifikasi')
-                        <span class="badge bg-warning">Terverikasi</span>
-                        @break
-                        @case($item->status == 'proses')
-                        <span class="badge bg-info">On Progress</span>
-                        @break
-                        @case($item->status == 'selesai')
-                        <span class="badge bg-success">Selesai</span>
-                        @break
+                            @case($item->status == 'verifikasi')
+                            <span class="badge bg-warning">Terverikasi</span>
+                            @break
+                            @case($item->status == 'proses')
+                            <span class="badge bg-info">On Progress</span>
+                            @break
+                            @case($item->status == 'selesai')
+                            <span class="badge bg-success">Selesai</span>
+                            @break
 
-                        @default
-                        <span>{{ $item->status }}</span>
-                        @endswitch
+                            @default
+                            <span>{{ $item->status }}</span>
+                            @endswitch
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="7" class="text-center text-gray-400">
+                            Data Tidak Ada
+                        </td>
+                    </tr>
+
+                    @endforelse
                 </tbody>
             </table>
         </div>

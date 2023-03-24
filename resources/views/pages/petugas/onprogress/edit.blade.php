@@ -36,6 +36,10 @@
                             @endswitch</a>
                     </li>
                 </ul>
+                <div class="mb-3 mt-2">
+                    <label for="tanggapan" class="form-label">Tanggapan Terakhir Oleh <strong>{{ $edit->tanga->petugas->level  }}</strong></label>
+                    <textarea class="form-control mb-3" name="tanggapan" readonly>{{ $edit->tanga->tanggapan }}</textarea>
+                </div>
             </form>
 
             <form action="{{ route('pengaduan-onprogress.update', $edit->id) }}" method="POST" enctype="multipart/form-data">

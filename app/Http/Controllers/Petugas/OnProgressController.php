@@ -47,13 +47,23 @@ class OnProgressController extends Controller
         $di =Session::get('id');
 
         // dd($menu);
-        Tanggapan::create([
-            'tanggapan' => $request->tanggapan,
-            'pengaduan_id'  =>$id,
-            'tgl_tanggapan' =>$ldate,
-            'petugas_id'  =>$di,
+        $tanggapan = Tanggapan::where('pengaduan_id', $id)->first();
 
-        ]);
+        if ($tanggapan) {
+            $data = $tanggapan->update([
+                    'tanggapan' => $request->tanggapan,
+                    'pengaduan_id'  =>$id,
+                    'tgl_tanggapan'  =>$ldate,
+                    'petugas_id'  =>$di,
+                ]);
+        }else{
+            $data = Tanggapan::create([
+                    'tanggapan' => $request->tanggapan,
+                    'pengaduan_id'  =>$id,
+                    'tgl_tanggapan'  =>$ldate,
+                    'petugas_id'  =>$di,
+                ]);
+        }
 
         $menu->update([
             'status' => 'selesai'

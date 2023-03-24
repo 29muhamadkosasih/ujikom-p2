@@ -52,7 +52,7 @@
                     <form action="/login-mas" method="GET" enctype="multipart/form-data" role="form" class="php-email-form">
                         @csrf
                         <div class="form-group">
-                            <label for="email">email</label>
+                            <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" id="email" required autofocus>
                         </div>
                         <div class="form-group">

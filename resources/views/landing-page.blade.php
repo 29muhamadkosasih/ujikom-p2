@@ -81,54 +81,41 @@
 
     <main id="main">
 
-
-
         <!-- ======= Cliens Section ======= -->
-        <!-- <section id="services" class="services section-bg">
-            <div class="container" data-aos="fade-up">
+    <section id="cliens" class="cliens section-bg">
+        <div class="container">
 
-                <div class="section-title">
-                    <h2>Information</h2>
+            <div class="row" data-aos="zoom-in">
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
                 </div>
 
-                <div class="row">
-                    <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                            <h4><a href="">Total Complaints</a></h4>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo voluptatum minus
-                                iusto deleniti amet nostrum, eum pariatur vitae, fuga tenetur dolor inventore harum
-                                soluta dolores consectetur consequatur reprehenderit repellat illo.</p>
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+                </div>
 
-                    <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-                        data-aos-delay="200">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4><a href=""> Total Report </a></h4>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo voluptatum minus
-                                iusto deleniti amet nostrum, eum pariatur vitae, fuga tenetur dolor inventore harum
-                                soluta dolores consectetur consequatur reprehenderit repellat illo.</p>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+                </div>
 
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-                        data-aos-delay="200">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4><a href=""> Total Response</a></h4>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo voluptatum minus
-                                iusto deleniti amet nostrum, eum pariatur vitae, fuga tenetur dolor inventore harum
-                                soluta dolores consectetur consequatur reprehenderit repellat illo.</p>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+                </div>
 
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+                </div>
 
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
                 </div>
 
             </div>
-        </section>End Services Section -->
+
+        </div>
+    </section><!-- End Cliens Section -->
+
 
         <section id="pricing" class="pricing">
             <div class="container" data-aos="fade-up">
@@ -139,18 +126,20 @@
 
                 <div class="row" style="text-align: center">
 
-                    @foreach ($pengaduan as $item)
-
+                    @forelse ($pengaduan as $item)
                     <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                        <h3>{{ $item->us->name }}</h3>
-                        <div class="pic" style="text-align: center"><img src="/image/{{ $item->fhoto }}"
-                                class="img-fluid" width="150px" alt=""></div>
+                        <div class="pic" style="text-align: center"><img src="/image/{{ $item->fhoto }}" class="img-fluid" width="150px" alt=""></div>
                         <ul>
                             <li style="text-align: center">{{ $item->laporan }}</li>
                         </ul>
                     </div>
-
-                    @endforeach
+                    @empty
+                    <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <ul>
+                            <li style="text-align: center">Data Tidak Ada</li>
+                        </ul>
+                    </div>
+                    @endforelse
                 </div>
 
             </div>
@@ -161,15 +150,13 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>ALL Masyarakat</h2>
+                    <h2>Data</h2>
                 </div>
                 <div class="row">
                     <div class="offset-3 col-lg-6">
                         <div class="member d-flex align-items-start mb-1" data-aos="zoom-in" data-aos-delay="100">
-                            <!-- <img src="https://ui-avatars.com/api/?name={{ $item->name }}"> -->
                             <div class="member-info">
                                 <h4>Total Masyarakat</h4>
-                                <!-- <!-- <span> NIK :{{ $item->nik }}</span> -->
                                 <span>{{$totalmas}}</span>
 
                             </div>
@@ -179,10 +166,8 @@
                 <div class="row">
                     <div class="offset-3 col-lg-6">
                         <div class="member d-flex align-items-start mb-1" data-aos="zoom-in" data-aos-delay="100">
-                            <!-- <img src="https://ui-avatars.com/api/?name={{ $item->name }}"> -->
                             <div class="member-info">
                                 <h4>Total Tanggapan</h4>
-                                <!-- <!-- <span> NIK :{{ $item->nik }}</span> -->
                                 <span>{{$totaltanga}}</span>
 
                             </div>
@@ -192,10 +177,8 @@
                 <div class="row">
                     <div class="offset-3 col-lg-6">
                         <div class="member d-flex align-items-start mb-1" data-aos="zoom-in" data-aos-delay="100">
-                            <!-- <img src="https://ui-avatars.com/api/?name={{ $item->name }}"> -->
                             <div class="member-info">
                                 <h4>Total Pengaduan</h4>
-                                <!-- <!-- <span> NIK :{{ $item->nik }}</span> -->
                                 <span>{{$totalpenga}}</span>
 
                             </div>

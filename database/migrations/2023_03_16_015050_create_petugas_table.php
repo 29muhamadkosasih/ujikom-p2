@@ -15,10 +15,10 @@ class CreatePetugasTable extends Migration
     {
         Schema::create('petugas', function (Blueprint $table) {
             $table->id();
-            $table->string('name_petugas');
-            $table->string('username');
-            $table->string('password');
-            $table->string('no_telp');
+            $table->string('name_petugas', 35);
+            $table->string('username', 25);
+            $table->string('password', 32);
+            $table->string('no_telp', 13);
             $table->enum('level', ['admin', 'petugas']);
             $table->timestamps();
         });
