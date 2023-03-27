@@ -41,7 +41,6 @@ Route::group(['middleware' =>['auth']],  function () {
     Route::resource('/home', UserController::class);
     Route::get('/pengaduan', [UserController::class, 'pengaduan'])->name('pengaduan');
     Route::get('/laporan', [UserController::class, 'laporan'])->name('sim.laporan');
-
 });
 
 

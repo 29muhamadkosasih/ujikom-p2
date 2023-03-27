@@ -3,13 +3,12 @@
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
-
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                 data-aos="fade-up" data-aos-delay="200">
                 <h1>Welcome To Website
-                    PENGADUAN MASYARAKAT</h1>
+                    PENGADUAN MASYARAKAT SUKAMAHI</h1>
                 <div class="d-flex justify-content-center justify-content-lg-start">
                     <a href="{{ url('pengaduan') }}" class="btn-get-started scrollto mb-5">Create Pengaduan</a>
                 </div>
@@ -19,7 +18,6 @@
             </div>
         </div>
     </div>
-
 </section><!-- End Hero -->
 
 <main id="main">
@@ -28,7 +26,7 @@
     <section id="cliens" class="cliens section-bg">
         <div class="container">
 
-            <div class="row" data-aos="zoom-in">
+            <div class="row">
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
                     <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">

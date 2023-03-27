@@ -114,15 +114,18 @@ class LoginController extends Controller
 
     }
 
-    public function logout(){
+    // public function logout()
+    // {
+    //     Session::put('login',FALSE);
+    //     Session::put('level','');
+    //     return redirect('/');
+    // }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
         Session::put('login',FALSE);
         Session::put('level','');
         return redirect('/');
     }
-
-    // public function logout(Request $request){
-    //     Auth::logout();
-    //     return redirect('/');
-    // }
-
 }

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'name' => 'Hamba Allah',
             'username' => Str::random(10),
             'telp' => '0855955999',
-            'email' => Str::random(10).'@gmail.com',
+            'email' => 'user@gmail.com',
             'password' => Hash::make('password'),
         ]);
     }
