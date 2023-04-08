@@ -109,7 +109,7 @@ class LoginController extends Controller
     {
         // dd($request->all());
         if (Auth::attempt($request->only('email','password'))) {
-            return redirect('/home')->with('success','Login Successfully');;
+            return redirect('/home')->with('success','Login Successfully');
         }
 
     }

@@ -15,8 +15,8 @@
     img {
         border: 0px solid #ddd;
         border-radius: 0px;
-        padding: 5px;
-        width: 100px;
+        padding: 0px;
+        width: 85px;
     }
 </style>`
 
@@ -29,12 +29,13 @@
                         <img src="img/icons/icon-48x48.png" alt="pp" class="center">
                     </td>
                     <td colspan="2">
-                        <h2>&nbsp;&nbsp;PENGADUAN MASYARAKAT SUKAMAHI</h2>
+                        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PEMERINTAH
+                            DINAS DESA SUKAMAHI</h2>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <h6>&nbsp;&nbsp;Kode Desa (PUM), 3201262010. Desa/Kelurahan, SUKAMAHI. Kecamatan, MEGAMENDUNG.
+                    <td colspan="2" style="text-align: center">
+                        <h6>Kode Desa (PUM), 3201262010. Desa/Kelurahan, SUKAMAHI. Kecamatan, MEGAMENDUNG.
                             Kabupaten/Kota, KABUPATEN BOGOR. Provinsi, JAWA BARAT.</h6>
                     </td>
                 </tr>
@@ -71,18 +72,18 @@
                 <td>
                     @switch($v)
                     @case($v->status == '0')
-                Belum Ada Tanggapan
-                @break
-                @default
-                {{ $v->tanga->tanggapan}} Oleh {{ $v->tanga->petugas->level }}</td>
+                    Belum Ada Tanggapan
+                    @break
+                    @default
+                    {{ $v->tanga->tanggapan}} Oleh {{ $v->tanga->petugas->level }}</td>
                 @endswitch
                 <td>
                     @switch($v)
                     @case($v->status == '0')
-                Belum Ada Tanggapan
-                @break
-                @default
-                {{ $v->tanga->tgl_tanggapan}}</td>
+                    Belum Ada Tanggapan
+                    @break
+                    @default
+                    {{ $v->tanga->tgl_tanggapan}}</td>
                 @endswitch
                 <td>
                     {{ $v->status }}
