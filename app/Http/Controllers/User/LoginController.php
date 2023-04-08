@@ -9,18 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
 class LoginController extends Controller
 {
-    // use AuthenticatesUsers;
-
     public function formLogin()
     {
         return view('pages.user.form-login.index');
     }
-
 
     public function formLoginAdmin()
     {
@@ -41,10 +37,6 @@ class LoginController extends Controller
            Session::put('username', $data->username);
            Session::put('no_telp', $data->no_telp);
            Session::put('level', $data->level);
-
-
-        //    dd($data->id);
-
 
            if ($data->password==$password) {
                if ($data->level=="admin")
@@ -81,45 +73,14 @@ class LoginController extends Controller
            return redirect()->back()->with('danger','Username Tidak Ditemukan');
        }
    }
-//     public function loginMas(Request $request)
-//     {
-//        $username = $request->username;
-//        $password = $request->password;
-//        $data= Masyarakat::where('username', $username)->first();
-//        if ($data) {
-//            Session::put('login', TRUE);
 
-//            Session::put('nik', $data->nik);
-//            Session::put('name', $data->name);
-//            Session::put('username', $data->username);
-//            Session::put('telp', $data->telp);
-//            Session::put('id', $data->id);
-
-//            $us =Session::get('id');
-
-//         //    dd($us);
-
-//            $data->password==$password;
-
-//             return redirect('/home');
-
-//        }
-//    }
     public function loginMas(Request $request)
     {
-        // dd($request->all());
         if (Auth::attempt($request->only('email','password'))) {
             return redirect('/home')->with('success','Login Successfully');
         }
 
     }
-
-    // public function logout()
-    // {
-    //     Session::put('login',FALSE);
-    //     Session::put('level','');
-    //     return redirect('/');
-    // }
 
     public function logout(Request $request)
     {

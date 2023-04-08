@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
 use App\Models\Masyarakat;
-use App\Models\Petugas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -72,7 +71,6 @@ class TanggapanController extends Controller
     {
         $edit = Pengaduan::find($id);
         $update= Pengaduan::findOrFail($id)->where('laporan');
-        // dd($update);
         return view('pages.admin.tanggapan.edit',[
             'edit'      =>$edit,
             'update'    =>$update,

@@ -18,64 +18,6 @@ class PengaduanController extends Controller
         ]);
     }
 
-    // public function store(Request $request)
-    // {
-
-    //     $request->validate([
-    //         'tgl_pengaduan'=>['required'],
-    //         'laporan'=>['required'],
-    //         'fhoto'=>['required'],
-    //         'status'=>['required'],
-
-    //     ]);
-
-    //     $input = $request->all();
-
-    //     if ($image = $request->file('fhoto')) {
-    //         $destinationPath = 'image/';
-    //         $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //         $image->move($destinationPath, $profileImage);
-    //         $input['fhoto'] = "$profileImage";
-    //     }
-
-    //     Pengaduan::create($input);
-    //     return redirect()->route('pengaduan.index');
-    // }
-
-    // public function edit($id)
-    // {
-    //     $edit = Pengaduan::find($id);
-    //     $nik = Masyarakat::get();
-    //     $data = Pengaduan::all();
-
-
-    //     return view('pages.pengaduan.index', compact('edit', 'nik', 'data'));
-
-    // }
-
-    // public function update(Request $request, Pengaduan $pengaduan)
-    // {
-    //     $request->validate([
-    //         'tgl_pengaduan' => 'required',
-    //     ]);
-
-    //     $input = $request->all();
-
-    //     if ($image = $request->file('fhoto')) {
-    //         $destinationPath = 'image/';
-    //         $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //         $image->move($destinationPath, $profileImage);
-    //         $input['fhoto'] = "$profileImage";
-    //     }else{
-    //         unset($input['fhoto']);
-    //     }
-
-    //     $pengaduan->update($input);
-
-    //     return redirect()->route('pengaduan.index');
-    // }
-
-
     public function show($id)
     {
         $show = Pengaduan::find($id);

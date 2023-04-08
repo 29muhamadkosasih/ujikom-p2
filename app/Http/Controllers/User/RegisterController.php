@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\User;
-use App\Models\Masyarakat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -18,10 +17,6 @@ class RegisterController extends Controller
 
     public function storePengaduan(Request $request)
     {
-        // $input =$request->all();
-
-        // dd($input);
-        // Masyarakat::create($input);
         User::create([
             'nik'  =>$request->nik,
             'name'  =>$request->name,
